@@ -1,0 +1,271 @@
+---
+layout: base
+---
+<div class="container">
+    <h1 class="display-2 mt-5">Menu</h1>
+    <h5>Allergens and intolerances</h5>
+    <p class="text-muted mb-5">
+        Please speak to our staff when making your order.<br>
+        Our dishes are prepared in an area where allergenic ingredients are present. We cannot
+        guarantee that our dishes will be 100% trace free of allergenic ingredients.
+    </p>
+    <div class="row">
+        <div class="d-none d-sm-block col-auto pe-4">
+            <ul class="list-group position-sticky top-0 pt-5">
+                {% for category in site.data.menu %}
+                {% if category.shortName %}
+                <a class="list-group-item list-group-item-action" href="#category-{{forloop.index0}}">{{category.shortName}}</a>
+                {% else %}
+                <a class="list-group-item list-group-item-action" href="#category-{{forloop.index0}}">{{category.name}}</a>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col">
+            {% for category in site.data.menu %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 id="category-{{forloop.index0}}" class="border-bottom">{{category.name}}</h2>
+                    {% for menuItem in category.items %}
+                    <div class="row mb-1">
+                        <div class="col-12">
+                            <div class="d-flex">
+                                <div class="lead">{{menuItem.menuId}}</div>
+                                <div class="ps-2 d-flex flex-column">
+                                    <div class="lead">{{menuItem.name}}</div>
+                                    <div>{{menuItem.description}}</div>
+                                </div>
+                            </div>
+                            <div class="d-flex flex-column text-end">
+                                {% if menuItem.price.first %}
+                                {% for priceItem in menuItem.price %}
+                                <div>{{priceItem.name}} {{priceItem.price}}</div>
+                                {% endfor %}
+                                {% else %}
+                                <div>{{menuItem.price}}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if category.bottomText %}
+            <div class="row mb-4">
+                <div class="col-12 fw-bold">
+                    {{ category.bottomText }}
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="row mb-4">
+                <div class="col-12">
+                    <h2 class="border-bottom">Set menus</h2>
+                    <div class="row mb-3">
+                        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4>Set menu A</h4>
+                                    <div>For 2 people</div>
+                                    <div>32.00</div>
+                                    <div class="mb-2 text-muted">(16.00 per person)</div>
+                                    <div class="lead">
+                                        A Taste of Thai Platter
+                                        <small>({{site.data.menu[0].items[10].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[0].items[10].description}}</div>
+                                    <div>--------</div>
+                                    <div class="lead">
+                                        {{site.data.menu[8].items[5].name}}
+                                        <small>({{site.data.menu[8].items[5].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[8].items[5].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[4].items[4].name}}
+                                        <small>({{site.data.menu[4].items[4].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[4].items[4].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[9].items[0].name}}
+                                        <small>({{site.data.menu[9].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[9].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[11].items[1].name}}
+                                        <small>({{site.data.menu[11].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[11].items[1].description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4>Set menu B</h4>
+                                    <div>For 3 people</div>
+                                    <div>51.00</div>
+                                    <div class="mb-2 text-muted">(17.00 per person)</div>
+                                    <div class="lead">Chicken satay, steamed dumplings and prawn pancake</div>
+                                    <div class="lead">OR</div>
+                                    <div class="lead">
+                                        A Taste of Thai Platter <small>({{site.data.menu[0].items[10].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[0].items[10].description}}</div>
+                                    <div>--------</div>
+                                    <div class="lead">
+                                        {{site.data.menu[8].items[3].name}}
+                                        <small>({{site.data.menu[8].items[3].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[8].items[3].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[4].items[3].name}}
+                                        <small>({{site.data.menu[4].items[3].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[4].items[3].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[6].items[1].name}}
+                                        <small>({{site.data.menu[6].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[6].items[1].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[9].items[0].name}}
+                                        <small>({{site.data.menu[9].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[9].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[10].items[5].name}}
+                                        <small>({{site.data.menu[10].items[5].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[10].items[5].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[11].items[1].name}}
+                                        <small>({{site.data.menu[11].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[11].items[1].description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4>Set menu C</h4>
+                                    <div>For 4 people</div>
+                                    <div>72.00</div>
+                                    <div class="mb-2 text-muted">(18.00 per person)</div>
+                                    <div class="lead">Chicken satay, mini spring rolls, prawns on toast, steamed
+                                        dumplings
+                                    </div>
+                                    <div class="lead">OR</div>
+                                    <div class="lead">
+                                        A Taste of Thai Platter (for 4 people)
+                                        <small>({{site.data.menu[0].items[10].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[0].items[10].description}}</div>
+                                    <div>--------</div>
+                                    <div class="lead">
+                                        {{site.data.menu[7].items[1].name}}
+                                        <small>({{site.data.menu[7].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[7].items[1].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[4].items[3].name}}
+                                        <small>({{site.data.menu[4].items[3].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[4].items[3].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[5].items[3].name}}
+                                        <small>({{site.data.menu[5].items[3].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[5].items[3].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[6].items[0].name}}
+                                        <small>({{site.data.menu[6].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[6].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[9].items[0].name}}
+                                        <small>({{site.data.menu[9].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[9].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[10].items[0].name}}
+                                        <small>({{site.data.menu[10].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[10].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[11].items[1].name}}
+                                        <small>({{site.data.menu[11].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[11].items[1].description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col col-md-10 offset-md-1 col-lg-8 offset-lg-2 text-center">
+                            <div class="card shadow-sm">
+                                <div class="card-body">
+                                    <h4>Set menu D</h4>
+                                    <div>For 4 people</div>
+                                    <div>80.00</div>
+                                    <div class="mb-2 text-muted">(20.00 per person)</div>
+                                    <div class="lead">
+                                        A Taste of Thai Platter (for 4 people)
+                                        <small>({{site.data.menu[0].items[10].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[0].items[10].description}}</div>
+                                    <div>--------</div>
+                                    <div class="lead">
+                                        {{site.data.menu[1].items[0].name}}
+                                        <small>({{site.data.menu[1].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[1].items[0].description}}</div>
+                                    <div>--------</div>
+                                    <div class="lead">
+                                        {{site.data.menu[8].items[5].name}}
+                                        <small>({{site.data.menu[8].items[5].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[8].items[5].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[3].items[2].name}}
+                                        <small>({{site.data.menu[3].items[2].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[3].items[2].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[5].items[1].name}}
+                                        <small>({{site.data.menu[5].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[5].items[1].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[6].items[2].name}}
+                                        <small>({{site.data.menu[6].items[2].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[6].items[2].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[9].items[0].name}}
+                                        <small>({{site.data.menu[9].items[0].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[9].items[0].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[10].items[5].name}}
+                                        <small>({{site.data.menu[10].items[5].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[10].items[5].description}}</div>
+                                    <div class="lead">
+                                        {{site.data.menu[11].items[1].name}}
+                                        <small>({{site.data.menu[11].items[1].menuId}})</small>
+                                    </div>
+                                    <div>{{site.data.menu[11].items[1].description}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
