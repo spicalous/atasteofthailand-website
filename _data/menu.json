@@ -106,7 +106,7 @@
       {
         "menuId": "19",
         "name": "Tom kha hed",
-        "description": "Mushroom soup cooked in coconut milk with galangal, kaffir lime leaves and lemon juice",
+        "description": "Mushroom soup cooked in coconut milk with galangal and lemon juice",
         "price": "3.95"
       }
     ]
@@ -125,7 +125,7 @@
       {
         "menuId": "21",
         "name": "Yum kai",
-        "description": "Thinly sliced grilled chicken on a bed of salad with a Thai style dressing",
+        "description": "Thinly sliced chicken on a bed of salad with a Thai style dressing",
         "price": "7.00"
       },
       {
@@ -432,7 +432,7 @@
       {
         "menuId": "55",
         "name": "Priew wan goong",
-        "description": "King prawns stir fried with tomatoes, carrots, cucumber, pepper, pineapple, onions and baby corn in a sweet and sour sauce",
+        "description": "King prawns stir fried with tomatoes, carrots, cucumber, peppers, pineapple, onions and baby corn in a sweet and sour sauce",
         "price": "9.50"
       },
       {

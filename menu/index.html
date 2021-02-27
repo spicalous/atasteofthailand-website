@@ -10,23 +10,46 @@ title: Menu | A Taste of Thailand
         Our dishes are prepared in an area where allergenic ingredients are present. We cannot
         guarantee that our dishes will be 100% trace free of allergenic ingredients.
     </p>
+</div>
+<div class="container-fluid d-md-none position-sticky top-0">
+    <div class="row pt-2 mb-4" style="background-color: white;">
+        <div class="col overflow-auto">
+            <ul class="list-group list-group-horizontal text-nowrap">
+                {% for category in site.data.menu %}
+                <a class="list-group-item list-group-item-action"
+                   href="#category-{{forloop.index0}}-with-offset">
+                    {% if category.shortName %}
+                    {{category.shortName}}
+                    {% else %}
+                    {{category.name}}
+                    {% endif %}
+                </a>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="row">
-        <div class="d-none d-sm-block col-auto pe-4">
+        <div class="d-none d-md-block col-auto pe-4">
             <ul class="list-group position-sticky top-0 pt-5">
                 {% for category in site.data.menu %}
-                {% if category.shortName %}
-                <a class="list-group-item list-group-item-action" href="#category-{{forloop.index0}}">{{category.shortName}}</a>
-                {% else %}
-                <a class="list-group-item list-group-item-action" href="#category-{{forloop.index0}}">{{category.name}}</a>
-                {% endif %}
+                <a class="list-group-item list-group-item-action" href="#category-{{forloop.index0}}-with-offset">
+                    {% if category.shortName %}
+                    {{category.shortName}}
+                    {% else %}
+                    {{category.name}}
+                    {% endif %}
+                </a>
                 {% endfor %}
             </ul>
         </div>
         <div class="col">
             {% for category in site.data.menu %}
             <div class="row mb-4">
+                <div id="category-{{forloop.index0}}-with-offset" style="position: relative; top: -70px;"></div>
                 <div class="col-12">
-                    <h2 id="category-{{forloop.index0}}" class="border-bottom">{{category.name}}</h2>
+                    <h2 class="border-bottom">{{category.name}}</h2>
                     {% for menuItem in category.items %}
                     <div class="row mb-1">
                         <div class="col-12">
