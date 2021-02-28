@@ -544,7 +544,7 @@
       {
         "menuId": "72",
         "name": "Pad si ewe",
-        "description": "Fried noodles with broccoli and your choice of meat with egg in a dark soya sauce",
+        "description": "Fried noodles with beansprouts, broccoli and your choice of meat with egg in a dark soya sauce",
         "price": [
           {
             "name": "Chicken",
@@ -575,13 +575,13 @@
       {
         "menuId": "75",
         "name": "Pad si ewe jay",
-        "description": "Vegetarian noodles with julienne carrots, broccoli and egg in a dark soya sauce",
+        "description": "Vegetarian noodles with beansprouts, julienne carrots, broccoli and egg in a dark soya sauce",
         "price": "6.00"
       },
       {
         "menuId": "76",
         "name": "Guay teaw jay",
-        "description": "Fried egg noodles with julienne carrots, onions and spring onion",
+        "description": "Fried egg noodles with beansprouts, julienne carrots, onions and spring onion",
         "price": "6.00"
       },
       {
